@@ -7,13 +7,24 @@ Module: Main Application
 from student import Student
 
 
+def search_student(students, keyword):
+    """Tìm kiếm sinh viên theo mã hoặc tên."""
+    results = []
+
+    for student in students:
+        if (keyword.lower() in student.student_id.lower()
+                or keyword.lower() in student.name.lower()):
+            results.append(student)
+
+    return results
+
+
 def main():
     """Hàm chính của ứng dụng."""
     print("=" * 50)
     print("STUDENT MANAGER — DevOps Lab 5")
     print("=" * 50)
 
-    # Tạo danh sách sinh viên mẫu
     students = [
         Student("SV001", "Nguyen Van A", 20, "K20"),
         Student("SV002", "Tran Thi B", 21, "K20"),
